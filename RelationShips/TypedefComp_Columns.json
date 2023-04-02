@@ -1,0 +1,27 @@
+{
+  "relationshipDefs": [
+    {
+      "category": "RELATIONSHIP",
+      "name": "componentPipeSSIS_componentPipeColumnSSIS",
+      "description": "component_columns",
+      "typeVersion": "1.0",
+      "attributeDefs": [],
+      "relationshipCategory": "AGGREGATION",
+      "propagateTags": "NONE",
+      "endDef1": {
+        "type": "componentPipeSSIS",
+        "name": "componentPipeColumnSSIS",
+        "isContainer": true,
+        "cardinality": "SET",
+        "isLegacyAttribute": false
+      },
+      "endDef2": {
+        "type": "componentPipeColumnSSIS",
+        "name": "componentPipeSSIS",
+        "isContainer": false,
+        "cardinality": "SINGLE",
+        "isLegacyAttribute": false
+      }
+    }
+  ]
+}

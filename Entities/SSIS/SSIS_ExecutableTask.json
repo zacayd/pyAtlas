@@ -1,0 +1,99 @@
+{
+  "entityDefs": [
+    {
+      "category": "ENTITY",
+      "name": "SSIS_ExecP",
+      "description": "SSIS_ExecutableTask",
+      "attributeDefs": [
+        {
+
+          "name": "ExecutablePath",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false,
+          "searchWeight": -1
+        },
+        {
+          "name": "ExecutableName",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false,
+          "searchWeight": -1
+        },
+        {
+          "name": "ExecutableType",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false,
+          "searchWeight": -1
+        },
+
+		  {
+          "name": "ExecutableID",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false,
+          "searchWeight": -1
+        },
+
+         {
+          "name": "IsDisabled",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false,
+          "searchWeight": -1
+        },
+        {
+          "name": "ServerName",
+          "typeName": "string",
+          "isOptional": true,
+          "cardinality": "SINGLE",
+          "valuesMinCount": 0,
+          "valuesMaxCount": 1,
+          "isUnique": false,
+          "isIndexable": false,
+          "includeInNotification": false,
+          "searchWeight": -1
+        }
+
+
+
+
+
+
+
+      ],
+      "superTypes": [
+        "Process"
+      ],
+      "subTypes": [],
+      "relationshipAttributeDefs": [],
+      "businessAttributeDefs": {}
+    }
+  ]
+}

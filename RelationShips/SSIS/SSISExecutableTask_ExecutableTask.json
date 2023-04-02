@@ -1,0 +1,27 @@
+{
+  "relationshipDefs": [
+    {
+      "category": "RELATIONSHIP",
+      "name": "SSIS_Exec_R",
+      "description": "Executable to Executables",
+      "typeVersion": "1.0",
+      "attributeDefs": [],
+      "relationshipCategory": "COMPOSITION",
+      "propagateTags": "NONE",
+      "endDef1": {
+        "type": "SSIS_ExecP",
+        "name": "SSIS_ExecP",
+        "isContainer": true,
+        "cardinality": "SET",
+        "isLegacyAttribute": false
+      },
+      "endDef2": {
+        "type": "SSIS_ExecP",
+        "name": "SSIS_ExecP",
+        "isContainer": false,
+        "cardinality": "SINGLE",
+        "isLegacyAttribute": false
+      }
+    }
+  ]
+}

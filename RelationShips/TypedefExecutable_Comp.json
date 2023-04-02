@@ -1,0 +1,27 @@
+{
+  "relationshipDefs": [
+    {
+      "category": "RELATIONSHIP",
+      "name": "ExecutableSSIS_componentPipeSSIS",
+      "description": "Executable to Comp",
+      "typeVersion": "1.0",
+      "attributeDefs": [],
+      "relationshipCategory": "AGGREGATION",
+      "propagateTags": "NONE",
+      "endDef1": {
+        "type": "ExecutableSSIS",
+        "name": "componentPipeSSIS",
+        "isContainer": true,
+        "cardinality": "SET",
+        "isLegacyAttribute": false
+      },
+      "endDef2": {
+        "type": "componentPipeSSIS",
+        "name": "ExecutableSSIS",
+        "isContainer": false,
+        "cardinality": "SINGLE",
+        "isLegacyAttribute": false
+      }
+    }
+  ]
+}

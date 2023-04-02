@@ -1,0 +1,27 @@
+{
+  "relationshipDefs": [
+    {
+      "category": "RELATIONSHIP",
+      "name": "SequenceContainerSSIS_ExecutableSSIS",
+      "description": "Sequence to Executables",
+      "typeVersion": "1.0",
+      "attributeDefs": [],
+      "relationshipCategory": "AGGREGATION",
+      "propagateTags": "NONE",
+      "endDef1": {
+        "type": "SequenceContainerSSIS",
+        "name": "ExecutableSSIS",
+        "isContainer": true,
+        "cardinality": "SET",
+        "isLegacyAttribute": false
+      },
+      "endDef2": {
+        "type": "ExecutableSSIS",
+        "name": "SequenceContainerSSIS",
+        "isContainer": false,
+        "cardinality": "SINGLE",
+        "isLegacyAttribute": false
+      }
+    }
+  ]
+}

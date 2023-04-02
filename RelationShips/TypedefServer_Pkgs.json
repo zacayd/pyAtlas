@@ -1,0 +1,32 @@
+{
+    "relationshipDefs": [
+        {
+            "category": "RELATIONSHIP",
+            "createdBy": "admin",
+            "updatedBy": "admin",
+            "createTime": 1679909680980,
+            "updateTime": 1679909680980,
+            "version": 1,
+            "name": "SSISServerInstanceType_PackageSSIS",
+            "description": "Server to packages",
+            "typeVersion": "1.0",
+            "attributeDefs": [],
+            "relationshipCategory": "AGGREGATION",
+            "propagateTags": "NONE",
+            "endDef1": {
+                "type": "SSISServerInstanceType",
+                "name": "Packages",
+                "isContainer": true,
+                "cardinality": "SET",
+                "isLegacyAttribute": false
+            },
+            "endDef2": {
+                "type": "PackageSSIS",
+                "name": "SSISServerInstanceType",
+                "isContainer": false,
+                "cardinality": "SINGLE",
+                "isLegacyAttribute": false
+            }
+        }
+    ]
+}

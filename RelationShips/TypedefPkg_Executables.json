@@ -1,0 +1,27 @@
+{
+  "relationshipDefs": [
+    {
+      "category": "RELATIONSHIP",
+      "name": "PackageSSIS_ExecutableSSIS",
+      "description": "Package to Executables",
+      "typeVersion": "1.0",
+      "attributeDefs": [],
+      "relationshipCategory": "AGGREGATION",
+      "propagateTags": "NONE",
+      "endDef1": {
+        "type": "PackageSSIS",
+        "name": "PackageSSIS",
+        "isContainer": true,
+        "cardinality": "SET",
+        "isLegacyAttribute": false
+      },
+      "endDef2": {
+        "type": "ExecutableSSIS",
+        "name": "ExecutableSSIS",
+        "isContainer": false,
+        "cardinality": "SINGLE",
+        "isLegacyAttribute": false
+      }
+    }
+  ]
+}

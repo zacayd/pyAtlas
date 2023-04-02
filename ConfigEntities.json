@@ -1,0 +1,16 @@
+{
+	"CustomerDbConnectionString": "server=sql.us.octopai-corp.local;Initial Catalog=gozego_Prod;uid=oum-prod-us;pwd=Dv45WDnqD6dV;",
+	"entities": [
+		{
+
+			"SSIS_ExecutableTask": {
+					"Query": "select  \na.PKG_PATH+'\\'+a.CF_REFID+'@'+'SSIS_ExecutableTask' as qualifiedName,\ncase when b.CF_ID is null then '-1' else \na.PKG_PATH+'\\'+b.CF_REFID+'@'+'SSIS_ExecutableTask' end as ParentQualifiedName,\na.PKG_PATH+'\\'+a.CF_REFID as ExecutablePath,\nisnull(nullif(a.CF_NAME,''),a.PKG_NAME) as name,\nisnull(nullif(a.CF_NAME,''),a.PKG_NAME) as displayName,\na.EXECUTABLETYPE as ExecutableType,\na.CF_ID as ExecutableID,\na.IsDisabled,\na.SERVERNAME as ServerName\nfrom ti.MNG_SSIS_CONTROLFLOW a \nleft join ti.MNG_SSIS_CONTROLFLOW b\non\n(a.CONNECTION_ID=b.CONNECTION_ID\nand\na.PARENT_CONTAINER_ID=b.CF_ID\nand\na.PKG_PATH=b.PKG_PATH\n)\nwhere a.EXECUTABLETYPE not like '%Package%'\nand a.EXECUTABLETYPE not like '%Seq%'\norder by  (case when a.ExecutableType like '%Package%' then 0\n\t\t\t\t\twhen a.ExecutableType like '%Sequence%' then 1 when a.ExecutableType like '%loop%' then 2 else 3 end )\n",
+				"entity": "SSIS_ExecP"
+			}
+		}
+
+	],
+	"connectionid": "103",
+	"baseUrl": "http://10.0.19.4:21000/api/atlas/v2/",
+	"isCreateTypeDef": "1"
+}

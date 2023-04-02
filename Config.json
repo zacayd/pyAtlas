@@ -1,0 +1,34 @@
+{
+	"CustomerDbConnectionString": "server=sql.us.octopai-corp.local;Initial Catalog=gozego_Prod;uid=oum-prod-us;pwd=Dv45WDnqD6dV;",
+	"entities": [
+		{
+			"SSISServerInstanceType": {
+				"Query": "select  distinct  CONNECTION_ID as ConnectionID,SERVERNAME as name  ,SERVERNAME as server_name,  SERVERNAME+'@'+'SSISServer' as qualifiedName, '-1' as ParentQualifiedName,\n'SSISServerInstanceType' as typeName,\n\nSERVERNAME as ConnectionName ,'' as ParentType from ti.MNG_SSIS_PACKAGE Where connection_id=?",
+				"entity": "SSISServerInstanceType"
+			}
+		},
+		{
+			"PackageSSIS_SSISServerInstanceType": {
+				"Query": "\tselect  SERVERNAME+'_'+PKG_PATH+'@Package' as qualifiedName,SERVERNAME+'@'+'SSISServer' as ParentQualifiedName,\n\tPKG_FILE_NAME as pacakge_file_name , \n\t'PackageSSIS' as typeName,\n\n\tPKG_ID as pacakge_id, CONNECTION_ID as ConnectionID,SERVERNAME as server_name ,SERVERNAME as ConnLogicName ,PKG_PATH as package_path ,PKG_NAME as name,PKG_NAME as package_name, CREATION_DATE as createTime ,CREATOR_NAME as  creatorname ,CREATECOMPUTER_NAME as create_computer_name ,VERSION_NUMBER as version_number,LOCALE_ID as  locale ,PACKAGE_TYPE as package_Type,VERSIONBUILD as version_build, VERSION_GUID as version_guid ,'SSISServerInstanceType' as ParentType from ti.MNG_SSIS_PACKAGE where   Connection_id=?",
+				"entity": "PackageSSIS"
+			}
+		},
+		{
+			"SequenceContainerSSIS": {
+				"Query": "select \ncase when a.EXECUTABLETYPE like '%SEQ%' then 'SequenceContainerSSIS'\nelse 'ExecutableSSIS' end as typeName,\na.SERVERNAME+'_'+\na.PKG_PATH+a.CF_REFID+'@'+a.EXECUTABLETYPE as qualifiedName,\n'-1' as ParentQualifiedName,\na.CF_NAME as  name,  \na.CF_NAME as TaskName,\na.CF_ID as CF_ID,\na.CF_NAME as CF_NAME,\na.CF_REFID as CF_REFID,\na.EXECUTABLETYPE,\na.ISDISABLED,\na.TaskContact as  TaskContact\n ,'' as ParentType from ti.MNG_SSIS_CONTROLFLOW a\nwhere a.EXECUTABLETYPE  not like  '%Package%'",
+				"entity": "SequenceContainerSSIS"
+			}
+		}
+	],
+	"relations": [
+		{
+			"PackagesSequencers": {
+				"Query": "\nselect  \n'SequenceContainerSSIS_ExecutableSSIS' as typeRelation,\ncase when a.EXECUTABLETYPE like '%SEQ%' then 'SequenceContainerSSIS'\nwhen a.EXECUTABLETYPE like '%Package%' then 'PackageSSIS'\nelse 'ExecutableSSIS'  end as SourceTypeName,\n\n case when  a.EXECUTABLETYPE like '%package%'\n then  a.SERVERNAME+'_'+a.PKG_PATH+'@Package'\n else\n a.SERVERNAME+'_'+\na.PKG_PATH+a.CF_REFID+'@'+a.EXECUTABLETYPE end as SourceQualifiedName,\n\ncase when b.EXECUTABLETYPE like '%SEQ%' then 'SequenceContainerSSIS'\nwhen b.EXECUTABLETYPE like '%Package%' then 'PackageSSIS'\nelse 'ExecutableSSIS'   end as TargetTypeName,\n\ncase when  b.EXECUTABLETYPE like '%package%'\n then  b.SERVERNAME+'_'+b.PKG_PATH+'@Package'\n else\n b.SERVERNAME+'_'+\nb.PKG_PATH+b.CF_REFID+'@'+b.EXECUTABLETYPE end as TargetQualifiedName\n\n\nfrom ti.MNG_SSIS_CONTROLFLOW a\nleft join ti.MNG_SSIS_CONTROLFLOW b\non\n(a.PARENT_CONTAINER_ID=b.CF_ID)\nwhere a.EXECUTABLETYPE not like '%Package%'\n\n",
+				"entity": "SequenceContainerSSIS_ExecutableSSIS"
+			}
+		}
+	],
+	"connectionid": "103",
+	"baseUrl": "http://10.0.19.4:21000/api/atlas/v2/",
+	"isCreateTypeDef": "1"
+}
